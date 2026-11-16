@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Vesper Audio — Design System Tokens
+   Swiss grid precision, industrial hardware surfaces, dual Light/Dark themes
+   ========================================================================== */
+
+:root {
+  /* Typography */
+  --font-sans: "Space Grotesk", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Light Theme — Studio Paper */
+  --bg: #f4f3ef;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #eae8e1;
+  --bg-stage: #e4e1d8;
+  --ink: #141413;
+  --ink-secondary: #4a4945;
+  --ink-muted: #6c6a63;
+  --border: rgba(20, 20, 19, 0.12);
+  --border-strong: rgba(20, 20, 19, 0.24);
+
+  /* Brand Accent — Braun / Signal Vermilion */
+  --accent: #e04819;
+  --accent-hover: #c93d12;
+  --accent-soft: rgba(224, 72, 25, 0.12);
+  --accent-ink: #ffffff;
+  --success: #1f7a4c;
+  --success-soft: rgba(31, 122, 76, 0.12);
+  --danger: #b82e2e;
+
+  /* Header & Overlays */
+  --header-bg: rgba(244, 243, 239, 0.86);
+  --backdrop: rgba(16, 16, 15, 0.48);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(20, 20, 19, 0.05);
+  --shadow-md: 0 12px 32px rgba(20, 20, 19, 0.08);
+  --shadow-lg: 0 24px 60px rgba(20, 20, 19, 0.14);
+
+  /* Radii & Layout */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --container-max: 1240px;
+  --header-height: 72px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast: 180ms var(--ease-out);
+  --transition-base: 300ms var(--ease-out);
+}
+
+[data-theme="dark"] {
+  --bg: #0e0f10;
+  --bg-elevated: #17191b;
+  --bg-subtle: #1f2225;
+  --bg-stage: #141618;
+  --ink: #f3f2ee;
+  --ink-secondary: #c4c2bb;
+  --ink-muted: #8f8d86;
+  --border: rgba(243, 242, 238, 0.12);
+  --border-strong: rgba(243, 242, 238, 0.24);
+
+  --accent: #ff5c28;
+  --accent-hover: #ff7042;
+  --accent-soft: rgba(255, 92, 40, 0.16);
+  --accent-ink: #0e0f10;
+  --success: #38b273;
+  --success-soft: rgba(56, 178, 115, 0.16);
+  --danger: #ef5350;
+
+  --header-bg: rgba(14, 15, 16, 0.85);
+  --backdrop: rgba(0, 0, 0, 0.68);
+
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 14px 36px rgba(0, 0, 0, 0.42);
+  --shadow-lg: 0 28px 64px rgba(0, 0, 0, 0.6);
+}
