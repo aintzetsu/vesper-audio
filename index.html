@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vesper Audio — Studio Reference Monitors & Acoustic Hardware</title>
+  <meta name="description" content="Vesper Audio crafts CNC-machined studio reference monitors, planar magnetic headphones, and R2R acoustic hardware calibrated in Berlin." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141413'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23e04819'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <script defer src="js/catalog.js"></script>
+  <script defer src="js/visualizer.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <a class="sr-only" href="#main-content">Skip to main content</a>
+
+  <!-- Sticky Navigation -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="#top" class="brand" aria-label="Vesper Audio Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span>VESPER</span>
+        <span class="brand__tag">SERIES 04</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#customizer">Customizer</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#acoustics">Acoustics</a>
+        <a href="#reviews">Studio Notes</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          id="theme-toggle"
+          type="button"
+          class="icon-btn mono"
+          aria-label="Switch to dark theme"
+          aria-pressed="false"
+          title="Toggle light/dark theme"
+        >
+          <span id="theme-icon" style="font-size: 0.72rem; font-weight: 600;">DRK</span>
+        </button>
+
+        <button id="cart-trigger" type="button" class="cart-trigger" aria-label="Open shopping bag">
+          <span>Bag</span>
+          <span id="cart-badge" class="cart-badge">0</span>
+        </button>
+
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="icon-btn mobile-menu-btn"
+          aria-label="Toggle mobile navigation"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation">
+      <div class="container mobile-nav__links">
+        <a href="#customizer">Customizer</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#acoustics">Acoustics</a>
+        <a href="#reviews">Studio Notes</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Showcase -->
+    <section id="top" class="hero">
+      <div class="container hero__grid">
+        <div>
+          <span class="eyebrow">
+            <span class="eyebrow__dot" aria-hidden="true"></span>
+            Berlin Acoustic Lab // Reference Series
+          </span>
+          <h1 class="hero__title">
+            Sound, machined to <em>silence</em> the noise.
+          </h1>
+          <p class="hero__lead">
+            Milled from solid 6061-T6 aerospace aluminum and individually laser-calibrated for phase coherence.
+            Built for mastering engineers, composers, and uncompromising listening rooms.
+          </p>
+          <div class="hero__actions">
+            <a href="#customizer" class="btn btn--primary">Configure VA-01</a>
+            <a href="#catalog" class="btn btn--secondary">Explore Hardware</a>
+          </div>
+
+          <div class="hero__meta">
+            <div>
+              <span class="hero__stat-val">28 Hz - 24 kHz</span>
+              <span class="hero__stat-label">Linear +/- 1.5 dB window</span>
+            </div>
+            <div>
+              <span class="hero__stat-val">0.008% THD</span>
+              <span class="hero__stat-label">Class-AB/D hybrid stage</span>
+            </div>
+            <div>
+              <span class="hero__stat-val">5-Year</span>
+              <span class="hero__stat-label">Direct studio warranty</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-stage">
+          <div class="hero-stage__topbar">
+            <span class="eyebrow">VA-01 // Studio Monitor</span>
+            <span class="badge badge--accent">In Stock</span>
+          </div>
+          <div class="hero-stage__canvas">
+            <div id="hero-artwork" class="hero-stage__artwork"></div>
+          </div>
+          <div class="hero-stage__footer">
+            <div>
+              <span class="mono" style="font-size: 0.72rem; color: var(--ink-muted); display: block;">ACTIVE FINISH</span>
+              <strong id="hero-finish-label" style="font-size: 0.92rem;">Matte Obsidian</strong>
+            </div>
+            <div id="hero-swatches" class="hero-swatches" role="group" aria-label="Quick preview finishes"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Telemetry Strip -->
+    <div class="telemetry-bar" aria-label="Key Engineering Benchmarks">
+      <div class="container telemetry-bar__grid">
+        <div class="telemetry-item">
+          <span class="telemetry-item__k">Signal-to-Noise</span>
+          <span class="telemetry-item__v mono">118.4 dB A-Weighted</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-item__k">Chassis Tolerance</span>
+          <span class="telemetry-item__v mono">0.02 mm CNC 6061-T6</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-item__k">Pair Matching</span>
+          <span class="telemetry-item__v mono">+/- 0.25 dB Anechoic</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-item__k">Direct Trial</span>
+          <span class="telemetry-item__v mono">30-Day In-Room Audition</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Product Customizer -->
+    <section id="customizer" class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="eyebrow">01 // Hardware Configurator</span>
+            <h2 class="section__title">Tailor the Vesper Monitor One</h2>
+          </div>
+          <p class="section__desc">
+            Select an anodized finish and pair calibration below. Every configuration ships with a serialized anechoic calibration chart.
+          </p>
+        </div>
+
+        <div class="customizer">
+          <div class="customizer-stage">
+            <div class="customizer-stage__head">
+              <span id="customizer-sku" class="sku-pill">VA-01-OBS-SGL</span>
+              <div class="view-toggle" role="group" aria-label="Stage view mode">
+                <button type="button" class="is-active" data-view-mode="elevation" aria-pressed="true">Elevation</button>
+                <button type="button" data-view-mode="specs" aria-pressed="false">Acoustic Callouts</button>
+              </div>
+            </div>
+
+            <div class="customizer-stage__viewport">
+              <div id="customizer-artwork" class="customizer-stage__artwork"></div>
+              <div id="blueprint-overlay" class="blueprint-overlay" aria-hidden="true">
+                <span class="blueprint-tag">01 · Beryllium Dome Waveguide (24 kHz)</span>
+                <span class="blueprint-tag blueprint-tag--right">02 · 6.5" Woven Carbon Mid-Woofer</span>
+                <span class="blueprint-tag">03 · 180W Bi-Amped Class-AB/D Stage</span>
+              </div>
+            </div>
+
+            <div class="customizer-stage__caption">
+              <span id="customizer-material">Bead-blasted anodized 6061 aluminum</span>
+              <span class="mono">Ships in 48h</span>
+            </div>
+          </div>
+
+          <div class="customizer-panel">
+            <div class="customizer-panel__header">
+              <div>
+                <span class="eyebrow">Flagship Reference</span>
+                <h3 id="customizer-title" class="customizer-panel__title">Vesper Monitor One</h3>
+              </div>
+              <div class="customizer-panel__price">
+                <span id="customizer-price" class="price-amount">$780</span>
+                <span id="customizer-price-note" class="price-note">Single studio monitor</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="option-group__label">
+                <span>1. Anodized Finish</span>
+                <span id="customizer-finish-name" class="mono" style="font-weight: 500; color: var(--ink-muted);">Matte Obsidian</span>
+              </div>
+              <div id="customizer-finish-grid" class="finish-grid"></div>
+            </div>
+
+            <div>
+              <div class="option-group__label">
+                <span>2. Studio Configuration</span>
+              </div>
+              <div class="edition-grid">
+                <button type="button" class="edition-btn is-selected" data-edition="single" aria-pressed="true">
+                  <span class="edition-btn__title">Single Monitor</span>
+                  <span class="edition-btn__meta">Center / Expansion unit</span>
+                </button>
+                <button type="button" class="edition-btn" data-edition="pair" aria-pressed="false">
+                  <span class="edition-btn__title">Matched Stereo Pair</span>
+                  <span class="edition-btn__meta">+/- 0.25 dB matched · Save $80</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="spec-mini-grid">
+              <div class="spec-mini">
+                <span class="spec-mini__k">Power</span>
+                <span class="spec-mini__v">180W Bi-Amp</span>
+              </div>
+              <div class="spec-mini">
+                <span class="spec-mini__k">Low Cut</span>
+                <span class="spec-mini__v">28 Hz (-3dB)</span>
+              </div>
+              <div class="spec-mini">
+                <span class="spec-mini__k">Inputs</span>
+                <span class="spec-mini__v">XLR / USB-C</span>
+              </div>
+            </div>
+
+            <button id="add-configured-btn" type="button" class="btn btn--primary btn--full">
+              Add Configuration to Bag
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filterable Product Catalog -->
+    <section id="catalog" class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="eyebrow">02 // Modular Lineup</span>
+            <h2 class="section__title">Complete Studio Hardware</h2>
+          </div>
+          <p class="section__desc">
+            Every monitor, headphone, and converter shares a unified acoustic target so mixes translate effortlessly between speakers and cans.
+          </p>
+        </div>
+
+        <div class="catalog-toolbar">
+          <div class="filter-tabs" role="group" aria-label="Filter hardware by category">
+            <button type="button" class="filter-tab is-active" data-filter="all" aria-pressed="true">All Hardware (6)</button>
+            <button type="button" class="filter-tab" data-filter="monitors" aria-pressed="false">Studio Monitors (2)</button>
+            <button type="button" class="filter-tab" data-filter="headphones" aria-pressed="false">Headphones (2)</button>
+            <button type="button" class="filter-tab" data-filter="accessories" aria-pressed="false">Accessories (2)</button>
+          </div>
+
+          <label class="sort-control">
+            <span>Sort:</span>
+            <select id="catalog-sort" aria-label="Sort products">
+              <option value="featured">Featured Order</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="catalog-grid" class="catalog-grid"></div>
+      </div>
+    </section>
+
+    <!-- Interactive Sound-Profile & Bento Acoustics -->
+    <section id="acoustics" class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="eyebrow">03 // DSP Acoustic Engine</span>
+            <h2 class="section__title">Three Voicings. Zero Phase Smear.</h2>
+          </div>
+          <p class="section__desc">
+            Switch between calibrated internal FIR curves below and optionally audition a subtle live Web Audio reference chord.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card bento-card--wide">
+            <div class="visualizer-header">
+              <div>
+                <span class="eyebrow">Real-Time Target Response</span>
+                <strong id="preset-subtitle" class="mono" style="display: block; margin-top: 0.25rem; font-size: 0.92rem;">
+                  Reference Calibration · +/- 0.4 dB
+                </strong>
+              </div>
+              <div class="preset-tabs" role="group" aria-label="Select DSP Sound Profile">
+                <button type="button" class="preset-tab is-active" data-preset="flat" aria-pressed="true">Studio Flat</button>
+                <button type="button" class="preset-tab" data-preset="analog" aria-pressed="false">Warm Analog</button>
+                <button type="button" class="preset-tab" data-preset="spatial" aria-pressed="false">Spatial Stage</button>
+              </div>
+            </div>
+
+            <div class="visualizer-stage">
+              <canvas id="acoustic-canvas" aria-label="Interactive frequency response curve"></canvas>
+            </div>
+
+            <div class="visualizer-footer">
+              <p id="preset-desc" class="preset-readout" style="max-width: 52ch;">
+                Linear phase and amplitude across the audible spectrum for critical mixing and mastering decisions.
+              </p>
+              <button id="tone-toggle-btn" type="button" class="btn btn--secondary btn--sm" aria-pressed="false">
+                Play Reference Tone
+              </button>
+            </div>
+          </div>
+
+          <div class="bento-card bento-card--side">
+            <div>
+              <span class="eyebrow">Discrete Input Stage</span>
+              <div class="bento-metric" style="margin-top: 0.9rem;">0.008%</div>
+              <h3>Ultra-Low Harmonic Distortion</h3>
+              <p>
+                Custom JFET differential input circuitry preserves micro-dynamics and transient snap even at quiet midnight monitoring levels.
+              </p>
+            </div>
+            <span class="mono" style="font-size: 0.78rem; color: var(--ink-muted);">MEASURED AT 1 KHZ / 85 DB SPL</span>
+          </div>
+
+          <div class="bento-card bento-card--third">
+            <span class="eyebrow">Unibody Damping</span>
+            <div>
+              <div class="bento-metric">6061-T6</div>
+              <h3>Resonance-Free Enclosure</h3>
+              <p>
+                Internal CNC-milled acoustic ribs stiffen cabinet walls without stealing internal air volume or relying on synthetic foam fill.
+              </p>
+            </div>
+          </div>
+
+          <div class="bento-card bento-card--third">
+            <span class="eyebrow">Anechoic Verification</span>
+            <div>
+              <div class="bento-metric">+/- 0.25 dB</div>
+              <h3>Matched Pair Tolerance</h3>
+              <p>
+                Every stereo pair is acoustically matched in our Berlin chamber so phantom center vocals lock cleanly in front of the mix.
+              </p>
+            </div>
+          </div>
+
+          <div class="bento-card bento-card--third">
+            <span class="eyebrow">Digital Precision</span>
+            <div>
+              <div class="bento-metric">32-bit</div>
+              <h3>Lossless USB-C Direct</h3>
+              <p>
+                Bypass cluttered desk interfaces with a single direct USB-C stream supporting 192 kHz native studio playback.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Studio Testimonials -->
+    <section id="reviews" class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="eyebrow">04 // Field Reports</span>
+            <h2 class="section__title">Trusted in Mastering &amp; Scoring Rooms</h2>
+          </div>
+          <p class="section__desc">
+            Feedback from independent producers, mixing engineers, and sound designers working daily on Series 04 hardware.
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <p class="review-card__quote">
+              “The low-end clarity on the VA-01 is startling for a 6.5-inch cabinet. Bass guitar notes stay distinct right down to 30 Hz without needing a sub.”
+            </p>
+            <div class="review-card__author">
+              <div>
+                <strong>Hannah Lindqvist</strong>
+                <span class="review-card__role">Mastering Engineer · Stockholm</span>
+              </div>
+              <span class="badge">VA-01 Pair</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <p class="review-card__quote">
+              “Switching between the Planar H1 headphones and my nearfields feels seamless. Reverb tails and vocal sibilance translate with zero guesswork.”
+            </p>
+            <div class="review-card__author">
+              <div>
+                <strong>Marcus Chen</strong>
+                <span class="review-card__role">Film Composer · Los Angeles</span>
+              </div>
+              <span class="badge">VA-02 + Field DAC</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <p class="review-card__quote">
+              “The stepped optical volume wheel on the Field DAC makes late-night level recalls effortless, and the machined chassis looks like laboratory gear.”
+            </p>
+            <div class="review-card__author">
+              <div>
+                <strong>Sora Takahashi</strong>
+                <span class="review-card__role">Sound Designer · Tokyo</span>
+              </div>
+              <span class="badge">VA-03 DAC</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section id="faq" class="section">
+      <div class="container faq-layout">
+        <div>
+          <span class="eyebrow">05 // Studio Support</span>
+          <h2 class="section__title">Technical &amp; Ordering FAQ</h2>
+          <p class="section__desc" style="margin-top: 1rem;">
+            Everything you need to know about room placement, 30-day auditioning, and direct calibration support.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1">
+              <span>Do I need a separate subwoofer with the VA-01 monitors?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div id="faq-panel-1" class="faq-panel">
+              <div class="faq-panel__inner">
+                <p>
+                  For most nearfield mixing rooms under 25 square meters, the VA-01 extends cleanly to 28 Hz on its own. Add the VA-04 Sub Compact if you master sub-heavy electronic music or score for theatrical rooms.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2">
+              <span>How does the 30-day studio audition work?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div id="faq-panel-2" class="faq-panel">
+              <div class="faq-panel__inner">
+                <p>
+                  Test any monitor or headphone in your own acoustic space for 30 days. If the translation doesn't transform your workflow, we arrange complimentary return courier pickup and a full refund.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3">
+              <span>Can I connect both analog XLR and USB-C at the same time?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div id="faq-panel-3" class="faq-panel">
+              <div class="faq-panel__inner">
+                <p>
+                  Yes. You can feed balanced XLR from an audio interface while keeping USB-C connected for direct digital playback or room-EQ DSP profile updates via our desktop utility.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-4">
+              <span>What does the 5-year direct warranty cover?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div id="faq-panel-4" class="faq-panel">
+              <div class="faq-panel__inner">
+                <p>
+                  All electronics, transducers, and anodized mechanical parts are covered for five years from delivery, including express loaner modules for registered commercial studios.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section">
+      <div class="container">
+        <div class="newsletter-box">
+          <div>
+            <span class="eyebrow">Vesper Acoustic Journal</span>
+            <h2>Receive studio calibration notes &amp; hardware drops.</h2>
+            <p>Quarterly engineering dispatches—zero marketing clutter. Use demo code <strong class="mono">STUDIO10</strong> in the bag for 10% off.</p>
+          </div>
+          <form id="newsletter-form" class="newsletter-form" novalidate>
+            <div class="newsletter-form__row">
+              <label for="newsletter-email" class="sr-only">Email address</label>
+              <input
+                id="newsletter-email"
+                type="email"
+                class="input"
+                placeholder="engineer@studio.com"
+                autocomplete="email"
+                required
+              />
+              <button type="submit" class="btn btn--primary">Subscribe</button>
+            </div>
+            <p id="newsletter-feedback" class="form-feedback" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Architectural Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#top" class="brand">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span>VESPER AUDIO</span>
+          </a>
+          <p style="margin: 0.9rem 0 0; max-width: 34ch; color: var(--ink-secondary); font-size: 0.9rem;">
+            Precision studio monitoring and tactile reference electronics engineered in Berlin.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Hardware</h3>
+          <ul>
+            <li><a href="#customizer">VA-01 Monitor One</a></li>
+            <li><a href="#catalog">Planar H1 Headphones</a></li>
+            <li><a href="#catalog">Field R2R DAC</a></li>
+            <li><a href="#catalog">Isolation Stands</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Engineering</h3>
+          <ul>
+            <li><a href="#acoustics">DSP Target Curves</a></li>
+            <li><a href="#reviews">Studio Case Notes</a></li>
+            <li><a href="#faq">30-Day Audition</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Showcase Meta</h3>
+          <ul>
+            <li><span class="mono">HTML5 · CSS3 · Vanilla JS</span></li>
+            <li><span class="mono">Canvas + Web Audio API</span></li>
+            <li><span class="mono">Zero External Dependencies</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Vesper Audio Concept. Built as a frontend portfolio showcase.</span>
+        <span class="mono">DEMO PROMO CODE: STUDIO10</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Backdrop -->
+  <div id="overlay-backdrop" class="overlay-backdrop" aria-hidden="true"></div>
+
+  <!-- Quick-View Modal -->
+  <div
+    id="product-modal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    aria-hidden="true"
+  >
+    <div class="modal__dialog">
+      <div class="modal__header">
+        <span id="modal-sku" class="sku-pill">VA-01</span>
+        <button id="modal-close" type="button" class="icon-btn" aria-label="Close specifications modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal__body">
+        <div id="modal-artwork" class="modal__media"></div>
+        <div>
+          <span class="eyebrow">Technical Specifications</span>
+          <h2 id="modal-title" class="modal__title">Product Name</h2>
+          <p id="modal-desc" class="modal__desc"></p>
+
+          <div>
+            <span id="modal-finish-name" class="mono" style="font-size: 0.78rem; color: var(--ink-muted); display: block; margin-bottom: 0.45rem;"></span>
+            <div id="modal-swatches" class="hero-swatches"></div>
+          </div>
+
+          <dl id="modal-specs" class="modal__specs"></dl>
+
+          <div class="modal__footer">
+            <span id="modal-price" class="price-amount">$780</span>
+            <button id="modal-add-btn" type="button" class="btn btn--primary">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide-Over Cart Drawer -->
+  <aside
+    id="cart-drawer"
+    class="cart-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cart-drawer-title"
+    aria-hidden="true"
+  >
+    <div class="cart-drawer__header">
+      <h2 id="cart-drawer-title" class="cart-drawer__title">Studio Bag</h2>
+      <button id="cart-close" type="button" class="icon-btn" aria-label="Close shopping bag">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="shipping-bar">
+      <div id="shipping-message">Complimentary insured studio courier on orders over $600</div>
+      <div class="shipping-bar__track">
+        <div id="shipping-fill" class="shipping-bar__fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <div id="cart-items" class="cart-drawer__items"></div>
+
+    <div id="cart-footer" class="cart-drawer__footer" hidden>
+      <form id="promo-form" class="promo-row">
+        <label for="promo-input" class="sr-only">Promo code</label>
+        <input id="promo-input" type="text" class="input" placeholder="Promo code (try STUDIO10)" />
+        <button type="submit" class="btn btn--secondary btn--sm">Apply</button>
+      </form>
+      <p id="promo-feedback" class="form-feedback" aria-live="polite"></p>
+
+      <div class="cart-summary">
+        <div class="cart-summary__row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal" class="mono">$0</span>
+        </div>
+        <div id="cart-discount-row" class="cart-summary__row" hidden>
+          <span>Studio Discount (10%)</span>
+          <span id="cart-discount" class="mono" style="color: var(--success);">-$0</span>
+        </div>
+        <div class="cart-summary__row">
+          <span>Insured Courier</span>
+          <span class="mono">FREE</span>
+        </div>
+        <div class="cart-summary__total">
+          <span>Estimated Total</span>
+          <span id="cart-total" class="mono">$0</span>
+        </div>
+      </div>
+
+      <button id="checkout-btn" type="button" class="btn btn--primary btn--full">
+        Simulate Studio Checkout
+      </button>
+      <button id="clear-cart-btn" type="button" class="btn btn--ghost btn--sm btn--full">
+        Clear Bag
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast Notifications -->
+  <div id="toast-stack" class="toast-stack" aria-live="polite"></div>
+</body>
+</html>
